@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>图片下载测试</title>
+<style>
+  :root { color-scheme: light dark; font: 100%/1.6 system-ui, sans-serif; }
+  body { max-width: 48rem; margin: 0 auto; padding: 1.5rem; color: CanvasText; background: Canvas; }
+  h1 { font-size: clamp(1.5rem, 5vw, 2rem); margin-block: .5rem; }
+  button, select { font: inherit; min-height: 3rem; padding: .5rem 1rem; }
+  button { cursor: pointer; }
+  .controls { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin-block: 1.25rem; }
+  ul { padding-inline-start: 1.5rem; }
+  li { margin-block: .75rem; }
+  a { color: LinkText; overflow-wrap: anywhere; }
+  textarea { box-sizing: border-box; width: 100%; min-height: 20rem; font: .85rem/1.5 ui-monospace, monospace; padding: 1rem; }
+  #status { min-height: 3rem; }
+  img { max-width: 100%; height: auto; }
+  :focus-visible { outline: 3px solid Highlight; outline-offset: 3px; }
+</style>
+<main>
+  <h1>图片下载测试</h1>
+  <p>测试 GitHub Pages 能否完整下载壁纸尺寸的图片。三张原创校验图共约 5.6 MiB，仅供开发测试。</p>
+  <div class="controls">
+    <label for="network">当前网络</label>
+    <select id="network"><option value="unknown">未标注</option><option value="wifi">Wi-Fi</option><option value="cellular">移动网络</option></select>
+    <button id="start" type="button">开始测试</button>
+    <button id="save" type="button" disabled>保存测试记录</button>
+  </div>
+  <p id="status" role="status" aria-live="polite">尚未测试。每次测试下载三张图片，不上传设备信息或测试记录。</p>
+  <ul id="results"></ul>
+  <details><summary>查看完整测试记录</summary><label for="report">测试记录 JSON</label><textarea id="report" readonly>尚无记录</textarea></details>
+  <p><a href="images/portrait-small.jpg">小竖图</a> · <a href="images/portrait-wallpaper.jpg">竖屏壁纸测试图</a> · <a href="images/landscape-wallpaper.jpg">横屏壁纸测试图</a></p>
+</main>
+<script src="probe.js" defer></script>
+</html>
